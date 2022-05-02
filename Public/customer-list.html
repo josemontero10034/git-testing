@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Lista de clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+    </hr>
+    <h1>Lista de clientes</h1>
+    </hr>
+    <div>
+        <div class="row" id="customers">
+
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        fetch('http://localhost:2000/customers')
+        .then(response => response.json())
+        .then(customers => {
+            for (let customer of customers){
+                const html = `
+                 
+    <div class="col-4">
+        <div class="card">
+            <div class="body">
+                <h3>${customer.name}</h3>
+
+                <button class="btn btn-primary" type="button"> Editar</button>
+                <button class="btn btn-danger" type="button"> Borrar</button>
+            </div>
+        </div>
+    </div>
+                `;
+document.getElementById("customers").innerHTML = document.getElementById("customers").innerHTML + html;
+            }    
+        });
+    </script>
+</body>
+</html>
