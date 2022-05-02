@@ -11,7 +11,7 @@ const io = new Server(server);
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));// my new api
 let customers = [
   {
     id: "1",
